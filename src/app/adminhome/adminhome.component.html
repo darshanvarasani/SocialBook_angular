@@ -1,0 +1,79 @@
+<body style="background-color:aliceblue;">
+    <div class="header sticky">
+        <img src="assets/images/logo.png" alt="SBook" style="height: 40px;">
+        <div class="header-right">
+            <a routerLink="/adminhome" routerLinkActive="active">PostAds</a>
+            <a routerLink="/userlist" routerLinkActive="active">Users</a>
+            <a routerLink="/login">Logout</a>
+        </div>
+    </div>
+    <div class="grid-container">
+        <div style="grid-column-start: 1;">
+            <div class="card sticky" style="margin-top: 70px; width: 300px; height: 400px;">
+                <img src="assets/images/avtar.jpg" alt="Avatar"
+                    style="width: 200px; height: 200px; border-radius: 50%; margin-left: 50px;">
+                <div style="padding: 2px 16px;">
+                    <h4><b>Admin</b></h4>
+                    <p>Name : Darshan</p>
+                    <p>Degree : B.Tech(Computer Engineer)</p>
+                    <p>Home : Surat, Gujarat</p>
+                    <p>DOB : 2nd January 2001</p>
+                </div>
+            </div>
+        </div>
+        <div style="grid-column-start: 2; margin-left: 300px; margin-top: 60px;">
+            <div class="card" style="margin-top: 10px; padding-left: 10px; width: 1000px; height:fit-content;">
+                <h3 style="padding-left: 10px;"><b>Post Advertisements</b></h3>  
+                <form [formGroup]="adminpost" (ngSubmit)="postad()" method="POST">              
+                <label>Upload photo : </label><input type="file" accept="image/*" formControlName="file"
+                (change)="handleFileInput($event.target.files)" name="file" required><br>
+                <input type="text" placeholder="Write Something.." name="dscription" formControlName="description" required
+                    style="margin: 5px; width: 500px; height: 40px;"><br>
+                <input type="text" placeholder="Write Display name..." name="displayname" formControlName="displayname" required
+                    style="margin: 5px; width: 500px; height: 40px;"><br>
+                <input type="submit" value="Post" class="button1" style="margin: 10px; width:100px; background-color: #4CAF50;">
+                </form>
+            </div>
+            <div class="card" style="margin-top: 10px; width: 1000px; height:fit-content;">
+                <table style="margin: 10px; text-align:left; width: 20%;">
+                    <tr>
+                        <td><img src="assets/images/admin.png" alt="Avatar"
+                                style="width: 80px; height: 80px; border-radius: 50%; margin-left: 10px;"></td>
+                        <td>
+                            <h4>Pepsi India</h4>
+                        </td>
+                    </tr>
+                </table>
+                <hr>
+                <img src="assets/images/pepsi.jpeg" alt="photo" style="width: auto; height: 500px;">
+                
+                <div style="display: inline; font-size: 20px;">
+                    <button class="button1" style="margin: 10px; background-color: cornflowerblue;"><i
+                                class="fa fa-thumbs-up">&nbsp;Like</i></button>
+                    <button class="button1" style="margin: 10px; background-color: cornflowerblue;"><i
+                                class="fa fa-comments">&nbsp;Comments</i></button>
+                </div>
+            </div>
+            <div class="card" style="margin-top: 10px; width: 1000px; height:fit-content;">
+                <table style="margin: 10px; text-align:left; width: 20%;">
+                    <tr>
+                        <td><img src="assets/images/admin.png" alt="Avatar"
+                                style="width: 80px; height: 80px; border-radius: 50%; margin-left: 10px;"></td>
+                        <td>
+                            <h4>MacDonalds</h4>
+                        </td>
+                    </tr>
+                </table>
+                <hr>
+                <img src="assets/images/macd.jpg" alt="photo" style="width: auto; height: 500px;">
+                
+                <div style="display: inline; font-size: 20px;">
+                    <button class="button1" style="margin: 10px; background-color: cornflowerblue;"><i
+                                class="fa fa-thumbs-up">&nbsp;Like</i></button>
+                    <button class="button1" style="margin: 10px; background-color: cornflowerblue;"><i
+                                class="fa fa-comments">&nbsp;Comments</i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

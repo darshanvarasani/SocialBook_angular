@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+body{
+  background-color: aliceblue;
+  height: 100%;
+  width: 100%;
+  min-height: 470px;
+}
+html{
+  background-color: aliceblue;
+}

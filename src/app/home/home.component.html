@@ -1,0 +1,61 @@
+<app-navigation></app-navigation>
+<app-profilecard></app-profilecard>
+
+<body style="background-color: aliceblue;">
+    <div class="grid-container">
+        <div style="grid-column-start: 2; margin-top: 70px; margin-left: 270px; width: 1000px;">
+            <div class="card" style="width: 1000px; height:fit-content;">
+                <h4 style="padding-left: 10px;"><b>Stories</b></h4>
+                <hr>
+                <div class="row" style="margin: 5px; overflow-x: hidden;">
+                <div *ngFor="let f of friends">
+                    <img src="{{f.imageUrl}}" alt="Avatar"
+                            style="width: 80px; height: 80px; border-radius: 50%; margin-left: 10px;">
+                            <p style="text-align: center;">{{f.fname}}</p>
+                </div></div>
+            </div>
+            <div class="card" style="margin-top: 10px; width: 1000px; height:fit-content;">
+                <div id="postsomething">
+                    <h4 style="padding-left: 10px; cursor: pointer;"><b>Click to Post Something</b></h4>
+                    <hr>
+                </div>
+                <div id="postpanel" style="display: none;">
+                    <form id="userpost" [formGroup]="userpost" (ngSubmit)="postphoto()" method="POST">
+                        <input type="text" placeholder="Write Something.." formControlName="description"
+                            name="description" required style="width: 500px; height: 40px; margin-left: 10px;">
+                        <label>Upload photo : </label><input type="file" accept="image/*" formControlName="file"
+                            (change)="handleFileInput($event.target.files)" name="file" required>
+                        <br>
+                        <input type="submit" value="Post" class="button1"
+                            style="margin: 10px; background-color: #4CAF50;">
+                    </form>
+                </div>
+            </div>
+            <div *ngFor="let post of uploads">
+                <div class="card" style="margin-top: 10px; width: 1000px; height:fit-content;">
+                    <table style="margin: 10px; text-align:left; width: 30%;">
+                        <tr>
+                            <td><img src="{{post.profileUrl}}" alt="Avatar"
+                                    style="width: 80px; height: 80px; border-radius: 50%; margin-left: 10px;"></td>
+                            <td>
+                                <h4><b>{{post.fname}} {{post.lname}}</b></h4>
+                            </td>
+                        </tr>
+                    </table>
+                    <hr>
+                    <p>{{post.description}}</p>
+                    <img src="{{post.imageUrl}}" alt="photo" style="width: auto; height: 500px;">
+                    <br>
+                    <div class="row" style="margin-left: 10px;">
+                        <div class="column" style="font-size: 20px;"><button class="button1"
+                                style="margin: 10px; background-color: cornflowerblue;"><i
+                                    class="fa fa-thumbs-up">&nbsp;Like</i></button></div>
+                        <div class="column" style="font-size: 20px;"><button class="button1"
+                                style="margin: 10px; background-color: cornflowerblue;"><i
+                                    class="fa fa-comments">&nbsp;Comments</i></button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

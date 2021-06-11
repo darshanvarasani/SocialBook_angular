@@ -1,0 +1,73 @@
+<app-navigation></app-navigation>
+<app-profilecard></app-profilecard>
+
+<body style="background-color:aliceblue;">
+    <div class="grid-container">
+        <div style="grid-column-start: 2; padding-left: 270px;">
+            <div class="card" style="margin-top: 70px; width: 1000px; height:fit-content;">
+                <div class="container" style="width: 1000px; padding-left: 0px;">
+                    <ul id="myTab" class="nav nav-tabs" style="width: 1000px;">
+                        <li><a class="active" data-toggle="tab" href="#friends1">Friends</a></li>
+                        <li><a data-toggle="tab" href="#friendreq">Friend Requests</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade in show active" id="friends1" style="background-color: white; ">
+                            <div *ngIf="friendlist.length == 0" style="margin: 5px;"><b>No Friends.</b></div>
+                            <table *ngFor="let u of friendlist" style="margin: 20px; text-align: left; width: 30%;">
+                                <tr>
+                                    <td><img src="{{u.imageUrl}}" alt="Avatar"
+                                            style="width: 80px; height: 80px; border-radius: 50%; margin-left: 10px;">
+                                    </td>
+                                    <td>
+                                        <h4>{{u.fname}}  {{u.lname}}</h4>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="tab-pane fade" id="friendreq" style="background-color: #ffffff;">
+                            <div *ngIf="requests.length == 0" style="margin: 5px;"><b>No Requests.</b></div>
+                            <table *ngFor="let u of requests" style="margin: 20px; text-align: left; width: 45%;">
+                                <tr>
+                                    <td><img src="{{u.imageUrl}}" alt="Avatar"
+                                            style="width: 80px; height: 80px; border-radius: 50%; margin-left: 10px;"></td>
+                                    <td>
+                                        <h4>{{u.fname}}  {{u.lname}}</h4>
+                                    </td>
+                                    <td><button class="button1" value="accept" (click)="acceptReq(u)"
+                                            style=" background-color: #09680c; margin: 5px;">accept</button></td>
+                                    <td><button class="button1" value="decline" (click)="declineReq(u)"
+                                            style="background-color: #8b1510; margin: 5px;">decline</button></td><hr>
+                                </tr>
+                            </table>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+            <div class="card" style="margin-top: 10px; width: 1000px; height:fit-content;">
+                <div style="display: inline;">
+                <input type="text" placeholder="Search for user.." name="userpost" required
+                    style="width: 500px; height: 40px; margin: 5px;">
+                <input type="button" class="button1" value="search"
+                    style="margin: 10px; width: 80px; background-color: cornflowerblue;"></div>
+            </div>
+            <div class="card" style="margin-top: 10px; width: 1000px; height:fit-content;">
+                <h3 style="padding-left: 10px;"><b>Suggestions for you :-</b></h3>
+                <hr>                
+                <table *ngFor="let u of users" style="text-align: left; width: 45%;">
+                    <tr>
+                        <td><img src="{{u.imageUrl}}" alt="Avatar"
+                                style="width: 80px; height: 80px; border-radius: 50%; margin-left: 10px;"></td>
+                        <td>
+                            <h4>{{u.fname}}  {{u.lname}}</h4>                            
+                        </td>
+                        <td><button type="submit" class="button1" (click)="sendReq(u)"
+                                style="background-color: cornflowerblue;"><i class="fa fa-user-plus"></i>&nbsp;Add
+                                Friend</button></td>
+                        
+                    </tr>
+                    <hr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>

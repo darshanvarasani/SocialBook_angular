@@ -1,0 +1,49 @@
+<app-navigation></app-navigation>
+<app-profilecard></app-profilecard>
+
+<body style="background-color:aliceblue;">
+    <div class="grid-container">
+        <div style="grid-column-start: 2; margin-left: 300px;">
+            <div class="card" id="chatlist" style="margin-top: 70px; width:fit-content; height:fit-content;">
+                <h3 style="padding-left: 10px;"><b>Friends :-</b></h3>
+                <hr>
+                <div *ngIf="friends.length == 0" style="margin: 5px; font-size:large;"><b>Sorry, you don't have any friend!!</b></div>
+                <table *ngFor="let u of friends" style="margin: 20px; text-align: left; width: 400px;">
+                    <tr>
+                        <td><img src="{{u.imageUrl}}" alt="Avatar"
+                                style="width: 80px; height: 80px; border-radius: 50%; margin-left: 10px;"></td>
+                        <td>
+                            <h4>{{u.fname}}  {{u.lname}}</h4>
+                        </td>
+                        <td><input type="button" id="msgbutton" class="button1" value="send message"
+                                (click)="open_tab(this.u)" style="background-color: cornflowerblue;"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div style="grid-column-start: 3;">
+            <div id="chatbox" class="card" style="margin-top: 70px; width:700px; height:550px; display: none;">
+                <table style="margin: 10px; text-align:left;">
+                    <tr>
+                        <td><img id="chatpic" alt="Avatar"
+                                style="width: 80px; height: 80px; border-radius: 50%; margin-left: 10px;"></td>
+                        <td>
+                            <h3 id="chatname"></h3>
+                        </td>
+                        <td align="right"><input type="button" class="button1" value="close" (click)="close_tab()"
+                                style="background-color: grey;align-self: flex-end;"></td>
+                    </tr>
+                </table>
+                <div class="card" style="width: 700px; height: 400px;">
+
+                </div>
+                <div style="position: relative; bottom: auto;">
+                    <input type="text" placeholder="Type your message" id="message"
+                        style="width: 600px; margin-top: 5px;">
+                    <input type="button" class="button1" name="send" value="send"
+                        style="margin: 5px; background-color: #4CAF50;">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,15 @@
+<div class="grid-container">
+    <div style="grid-column-start: 1; position: fixed;">
+        <div class="card" *ngFor="let user of user" style="margin-top: 70px; width: 300px; height: 400px;">
+            <img src="{{user.imageUrl}}" alt="Avatar"
+                style="width: 200px; height: 200px; border-radius: 50%;padding-top: 5px; margin-left: 50px;">
+            <div style="padding: 2px 16px; text-size-adjust: 20px;">
+                <h4 style="text-align: center;"><b>My Profile</b></h4>                
+                <p>Name : {{user.fname}} {{user.lname}}</p>
+                <p>Email : {{user.email}}</p>
+                <p *ngIf="user.city != null && user.state != null">From : {{user.city}}, {{user.state}}</p>
+                <p>DOB : {{user.dob}}</p>
+            </div>
+        </div>
+    </div>
+</div>

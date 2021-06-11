@@ -1,0 +1,55 @@
+
+<body style="background-color:aliceblue; align-items: center;">
+    <!-- <script src="javascript/login.js"></script> -->
+    <div class="card" style="width: fit-content; padding: 10px;">
+        <form id="login" [formGroup]="login" class="needs-validation" (ngSubmit)="loginuser()" name="login" method="POST" novalidate>
+            <img src="assets/images/logo.png" alt="SBook" style="height: 40px;"> <br>
+            <label
+                style="text-align: center; font-size:xx-large; font-family:Georgia, 'Times New Roman', Times, serif;">User
+                Login</label>
+            <table>
+                <tr>
+                        <td><label style="font-size: x-large ;">Username : </label></td>
+                        <td><input type="email" formControlName="username" name="username" class="form-control" placeholder="Enter Email ID"
+                                required></td>
+                        <div class="valid-tooltip"> Looks good! </div>
+                        <div class="invalid-tooltip">Name is required! </div>
+                </tr>
+                <tr id="username-tr" style="color: red;display: none;">
+                    <td colspan="2" align="right">username required*</td>
+                </tr>
+                <tr id="username-tr1" style="color: red;display: none;">
+                    <td colspan="2" align="right">Enter valid email id*</td>
+                </tr>
+                <tr>
+                        <td><label style="font-size: x-large;">Password : </label></td>
+                        <td><input type="password" formControlName="password" name="pass" class="form-control" placeholder="Enter Password"
+                                required></td>
+                        <div class="valid-tooltip"> Looks good! </div>
+                        <div class="invalid-tooltip">password is required! </div>
+                </tr>
+                <tr id="pass-tr" style="color: red;display: none;">
+                    <td colspan="2" align="right">password required*</td>
+                </tr>
+                <tr>
+                    <td><input type="submit" class="button1" value="Login!" style="background-color: cornflowerblue;">
+                    </td>
+                    <td><input type="reset" class="button1" value="Cancel" style="background-color: cornflowerblue;">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="left"><a routerLink="/forgotpassword"
+                            style="display: block; margin: 5px;">Forgot password? </a></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="left"><a routerLink="/signup" style="display: block; margin: 5px;">New User?
+                        </a></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="left"><a routerLink="/adminlogin" style="display: block; margin: 5px;">Login as
+                            admin </a></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>

@@ -1,0 +1,73 @@
+<body style="background-color:aliceblue;">
+    <div class="header sticky">
+        <img src="assets/images/logo.png" alt="SBook" style="height: 40px;">
+        <div class="header-right">
+            <a routerLink="/adminhome" routerLinkActive="active">PostAds</a>
+            <a routerLink="/userlist" routerLinkActive="active">Users</a>
+            <a routerLink="/login">Logout</a>
+        </div>
+    </div>
+    <div class="grid-container">
+        <div style="grid-column-start: 1;">
+            <div class="card sticky" style="margin-top: 70px; width: 300px; height: 400px;">
+                <img src="assets/images/avtar.jpg" alt="Avatar"
+                    style="width: 200px; height: 200px; border-radius: 50%; margin-left: 50px;">
+                <div style="padding: 2px 16px;">
+                    <h4><b>Admin</b></h4>
+                    <p>Name : Darshan</p>
+                    <p>Degree : B.Tech(Computer Engineer)</p>
+                    <p>Home : Surat, Gujarat</p>
+                    <p>DOB : 2nd January 2001</p>
+                </div>
+            </div>
+        </div>
+        <div style="grid-column-start: 2; margin-left: 300px;">
+            <div class="card" style="margin-top: 70px; width: 1000px; height:fit-content;">
+                <div style="display: inline;">
+                <input type="text" placeholder="Search for user.." name="userpost" required
+                    style="width: 500px; height: 40px; margin-left: 10px;">
+                <input type="button" class="button1" value="search"
+                    style="margin: 10px; background-color: cornflowerblue;"></div>
+            </div>
+            <div class="card" style="margin-top: 10px; width: 1000px; height:fit-content;">
+                <h3 style="padding-left: 10px;"><b>Registered Users :-</b></h3>
+                <hr>
+                <table *ngFor="let u of users" style="margin: 10px; text-align: left; width: 45%;">
+                    <tr>
+                        <td><img src="assets/images/user1.jpg" alt="Avatar"
+                                style="width: 80px; height: 80px; border-radius: 50%; margin-left: 10px;"></td>
+                        <td>
+                            <h4>{{u.fname}}  {{u.lname}}</h4>
+                        </td>
+                        <td align="right"><button class="button1" (click)="blockUser(u)" data-toggle="modal" data-target="#myModal" name="blockuser" value="User3"
+                                style="background-color: cornflowerblue;">Block User</button></td>
+                                <div class="modal" id="myModal" data-backdrop="static">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                      
+                                        <!-- Modal Header -->
+                                        <!-- <div class="modal-header">
+                                          <h4 class="modal-title">Update Details</h4>
+                                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div> -->
+                                        
+                                        <!-- Modal body -->
+                                        <div class="modal-body">
+                                           <h3> Confirm block User</h3>
+                                        </div>
+                                        
+                                        <!-- Modal footer -->
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                            <button type="button" (click)="confirmBlock()" class="btn btn-primary" data-dismiss="modal">Block</button>                                  
+                                        </div>
+                                        
+                                      </div>
+                                    </div>
+                                  </div>
+                    </tr>                    
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
